@@ -27,6 +27,7 @@ class ArticleController extends AbstractController
 
         $coments = array("Este es el comentario 1", "Este es el segundo comentario", "this is the 3rd comment");
 
+
         return $this->render('article/show.html.twig',[
             'title' => ucwords(str_replace('-', ' ',$slug)),
             'comments'=> $coments,
