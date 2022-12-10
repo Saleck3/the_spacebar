@@ -3,10 +3,11 @@
 namespace App\Controller;
 
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ArticleController
+class ArticleController extends AbstractController
 {
     /**
      * @Route("/")
@@ -23,6 +24,12 @@ class ArticleController
      */
     public function show($slug)
     {
-        return new Response(sprintf("This is actually another page with the slug %s", $slug));
+
+        $coments = array("Este es el comentario 1", "Este es el segundo comentario", "this is the 3rd comment");
+
+        return $this->render('article/show.html.twig',[
+            'title' => ucwords(str_replace('-', ' ',$slug)),
+            'comments'=> $coments,
+            ]);
     }
 }
