@@ -1,1 +1,1 @@
-php ./bin/console server:run
+symfony server:start -d
